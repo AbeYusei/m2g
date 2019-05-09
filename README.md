@@ -11,5 +11,5 @@ brew install ffmpeg
 
 ```
 go get https://github.com/AbeYusei/ffmpeg_custom
-ffmpeg /file/to/movfile.mov
+ffmpeg_custom /file/to/movfile.mov
 ```
