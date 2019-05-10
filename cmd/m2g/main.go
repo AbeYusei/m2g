@@ -3,9 +3,7 @@ package main
 import (
 	"os"
 
-	"../../validate"
-	"../../ffmpeg"
-	"../../error"
+	"github.com/AbeYusei/m2g/ffmpeg"
 )
 
 func main() {
