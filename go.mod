@@ -1,3 +1,3 @@
-module github.com/AbeYusei/ffmpeg_custom
+module github.com/AbeYusei/m2g
 
 go 1.12
