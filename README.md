@@ -13,7 +13,7 @@ brew install ffmpeg
 install this CLI package.
 
 ```
-go get github.com/AbeYusei/m2g/cmd/m2g
+go get -u github.com/AbeYusei/m2g/cmd/m2g
 ```
 
 ## how to use
