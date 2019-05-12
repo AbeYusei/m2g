@@ -13,11 +13,11 @@ brew install ffmpeg
 install this CLI package.
 
 ```
-go get github.com/AbeYusei/ffmpeg_custom
+go get github.com/AbeYusei/m2g/cmd/m2g
 ```
 
 ## how to use
 
 ```
-ffmpeg_custom /file/to/movfile.mov
+m2g /file/to/movfile.mov
 ```

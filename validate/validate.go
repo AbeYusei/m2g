@@ -23,11 +23,14 @@ func Arg2Path(args []string) *m2g.Path {
 	rawPath := args[1]
 	path := m2g.Convert2Path(rawPath)
 
-	if path.raw != path.mov {
+	if path.Raw != path.Mov {
 		error.Handle(".movファイルを指定してください。")
 	}
-	if exists(path.gif) {
-		error.Handle("ファイル " + path.gif + " がすでに存在します。")
+	if !exists(path.Mov) {
+		error.Handle("指定された.movファイルが存在しません。")
+	}
+	if exists(path.Gif) {
+		error.Handle("ファイル " + path.Gif + " がすでに存在します。")
 	}
 
 	return path

@@ -11,8 +11,8 @@ type Path struct {
 	Gif string
 }
 
-// Covert2Path convert rawpath to struct object
-func Covert2Path(rawPath string) *Path {
+// Convert2Path convert rawpath to struct object
+func Convert2Path(rawPath string) *Path {
 	ext := filepath.Ext(rawPath)
 	base := rawPath[0 : len(rawPath)-len(ext)]
 	return &Path{rawPath, base + ".mov", base + ".gif"}
