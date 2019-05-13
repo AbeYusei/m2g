@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/AbeYusei/m2g/ffmpeg"
@@ -8,5 +9,20 @@ import (
 )
 
 func main() {
-	ffmpeg.Mov2Gif(validate.Arg2Path(os.Args))
+	p, err := validate.Arg2Path(os.Args)
+	if err != nil {
+		handleError(err)
+	}
+
+	o, err := ffmpeg.Mov2Gif(p)
+	if err != nil {
+		handleError(err)
+	}
+
+	fmt.Println(o)
+}
+
+func handleError(err error) {
+	fmt.Println(err)
+	os.Exit(1)
 }

@@ -4,7 +4,6 @@ import (
 	"os"
 
 	"github.com/AbeYusei/m2g"
-	"github.com/AbeYusei/m2g/error"
 )
 
 // Exists checks path is exists
@@ -14,24 +13,24 @@ func exists(path string) bool {
 }
 
 // Arg2Path arguments to struct object
-func Arg2Path(args []string) *m2g.Path {
+func Arg2Path(args []string) (*m2g.Path, error) {
 
-	if len(args) < 2 {
-		error.Handle("引数に変換対象の.movファイルを指定してください。")
+	if len(args) == 0 || len(args) < 2 {
+		return nil, m2g.Err(m2g.InvalidArgLength)
 	}
 
 	rawPath := args[1]
 	path := m2g.Convert2Path(rawPath)
 
 	if path.Raw != path.Mov {
-		error.Handle(".movファイルを指定してください。")
+		return nil, m2g.Err(m2g.InvalidArgFile)
 	}
 	if !exists(path.Mov) {
-		error.Handle("指定された.movファイルが存在しません。")
+		return nil, m2g.Err(m2g.NotExistsInputFile)
 	}
 	if exists(path.Gif) {
-		error.Handle("ファイル " + path.Gif + " がすでに存在します。")
+		return nil, m2g.Err(m2g.AlraedyExistsOutputFile)
 	}
 
-	return path
+	return path, nil
 }
