@@ -2,27 +2,32 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/AbeYusei/m2g/ffmpeg"
 	"github.com/AbeYusei/m2g/validate"
 )
 
+var exit = os.Exit
+
 func main() {
 	p, err := validate.Arg2Path(os.Args)
 	if err != nil {
-		handleError(err)
+		os.Exit(e(err))
 	}
 
 	o, err := ffmpeg.Mov2Gif(p)
 	if err != nil {
-		handleError(err)
+		os.Exit(e(err))
 	}
 
 	fmt.Println(o)
 }
 
-func handleError(err error) {
+// error handling with logging proxy
+func e(err error) int {
+	log.Println(err)
 	fmt.Println(err)
-	os.Exit(1)
+	return 1
 }
