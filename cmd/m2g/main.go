@@ -9,8 +9,6 @@ import (
 	"github.com/AbeYusei/m2g/validate"
 )
 
-var exit = os.Exit
-
 func main() {
 	p, err := validate.Arg2Path(os.Args)
 	if err != nil {
