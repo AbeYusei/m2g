@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/AbeYusei/m2g"
-	"github.com/AbeYusei/testutil"
+	"github.com/AbeYusei/m2g/testutil"
 )
 
 func TestSuccessConvert2Path(t *testing.T) {
@@ -15,11 +15,9 @@ func TestSuccessConvert2Path(t *testing.T) {
 		{"~/dir", "~/dir", "~/dir.mov", "~/dir.gif"},
 	}
 
-	for tc := range cases {
-		path := m2g.Convert2Path(tc.Raw)
-		t.Log(path)
-		if tc != path {
-			testutil.Errorf(t, tc, path)
+	for _, tc := range cases {
+		if path := m2g.Convert2Path(tc.Raw); tc != *path {
+			testutil.Errorf(t, tc, *path)
 		}
 	}
 }
