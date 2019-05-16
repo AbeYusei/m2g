@@ -10,9 +10,8 @@ import (
 func TestSuccessConvert2Path(t *testing.T) {
 
 	cases := []m2g.Path{
-		// {"~/dir.mov", "~/dir", "~/dir.mov", "~/dir.gif"},
-		{"~/dir.mov", "~/dir", "~/dir.mov", "~/dir.gif"},
-		{"~/dir", "~/dir", "~/dir.mov", "~/dir.gif"},
+		{"~/dir.mov", "~", "~/dir.mov", "~/dir.gif"},
+		{"~/dir", "~", "~/dir.mov", "~/dir.gif"},
 	}
 
 	for _, tc := range cases {

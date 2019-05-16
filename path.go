@@ -16,5 +16,5 @@ type Path struct {
 func Convert2Path(rawPath string) *Path {
 	ext := filepath.Ext(rawPath)
 	base := rawPath[0 : len(rawPath)-len(ext)]
-	return &Path{rawPath, base, base + ".mov", base + ".gif"}
+	return &Path{rawPath, filepath.Dir(rawPath), base + ".mov", base + ".gif"}
 }

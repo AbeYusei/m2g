@@ -2,7 +2,6 @@ package ffmpeg
 
 import (
 	"log"
-	"os/exec"
 
 	"github.com/AbeYusei/m2g"
 )
@@ -16,10 +15,8 @@ func Mov2Gif(p *m2g.Path) (string, error) {
 
 	args := []string{"-i", m, "-r", "10", g}
 
-	out, err := exec.Command("ffmpeg", args...).CombinedOutput()
-	if err != nil {
-		return "error", m2g.Err(m2g.InternalProcess)
-	}
+	log.Print(p)
+	err := Exec(p.Dir, "ffmpeg", args)
 
-	return string(out), nil
+	return "ffmpeg done.", err
 }
