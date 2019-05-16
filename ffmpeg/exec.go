@@ -68,7 +68,3 @@ func Exec(dir, c string, args []string) error {
 
 	return nil
 }
-
-// func main() {
-// 	do("/Users/abe_yusei/dev/src/github.com/AbeYusei/goroutine_sample01", "ls", []string{"-la"})
-// }
