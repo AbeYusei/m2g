@@ -21,3 +21,8 @@ go get -u github.com/AbeYusei/m2g/cmd/m2g
 ```
 m2g /file/to/movfile.mov
 ```
+## run test
+
+```
+go test -v ./... -count=1
+```
